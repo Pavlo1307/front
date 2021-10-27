@@ -1,18 +1,15 @@
+import {BrowserRouter as Router, Link, Route, Switch, Redirect} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {getUsers} from "./conponents/servises/API";
+import Registration from "./conponents/registration/Registration";
+import Routers from "./conponents/routers/Routers";
 
 function App() {
-  let [users, setUsers] = useState([]);
 
-  useEffect(()=>{
-    getUsers().then(value => setUsers(value.data));
-
-  },[])
-  console.log(users)
   return (
-    <div>
-
-    </div>
+      <div>
+          <Routers/>
+      </div>
   );
 }
 
