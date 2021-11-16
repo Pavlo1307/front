@@ -1,15 +1,3 @@
-.formStyle{
-    display: flex;
-    flex-direction: column;
-    border-radius: 20px;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(165, 165, 165, 0.2);
-    height: 450px;
-    width: 250px;
-    padding: 30px;
-}
-
 .pageStyle {
     min-height: 100vh;
     display: flex;
@@ -22,6 +10,19 @@
     background-size: 100% 100%;
 }
 
+.formRegistration{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(165, 165, 165, 0.2);
+    height: 450px;
+    width: 250px;
+    padding: 30px;
+}
+
 input{
     background-color: white;
     border: none;
@@ -31,11 +32,32 @@ input{
     margin: 10px;
 }
 
-button{
+.down-button{
+    color: white;
     border: none;
     font-size: medium;
     padding: 14px;
     border-radius: 20px;
     background-color: rgb(140 46 123);
+}
+
+.up-button{
+    border: none;
+    font-size: medium;
+    padding: 14px;
+    border-radius: 20px;
+    width: 100%;
+}
+
+.link-div{
+    display: flex;
+    color: white;
+    flex-direction: column;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(165, 165, 165, 0.2);
+    width: 290px;
+    padding: 10px;
 }
 

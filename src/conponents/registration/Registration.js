@@ -1,6 +1,7 @@
 import {useReducer} from "react";
 import {registrationUser} from "../servises/API";
 import './Registration.css'
+import {Link} from "react-router-dom";
 
 const reducer = (state, action) => {
     switch (action.type){
@@ -43,11 +44,7 @@ export default function Registration() {
 
     return (
         <div className='pageStyle'>
-            <div style={{display: 'flex', columnGap: '50px'}}>
-                <div>Login</div>
-                <div>Register</div>
-            </div>
-            <form className='formStyle' onSubmit={handleSubmit}>
+            <form className='formRegistration' onSubmit={handleSubmit}>
                 <h2>Register</h2>
                 <input type="text"
                        placeholder={'First name'}
@@ -74,8 +71,12 @@ export default function Registration() {
                        value={password}
                        onChange={({target:{value}}) => dispatch({type:'PASSWORD', payload: value})}
                 />
-                <button>Registration</button>
+                <button className='down-button'>Registration</button>
             </form>
+            <div className='link-div'>
+                <p>Do you have account? </p>
+                <Link to={'/login'}> Log in</Link>
+            </div>
         </div>
 
     );

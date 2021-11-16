@@ -1,5 +1,8 @@
 import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
 import Registration from "../registration/Registration";
+import LoginPage from "../loginPage/LoginPage";
+import Users from "../users/Users";
+import User from "../users/user/User";
 
 export default function Routers() {
     return (
@@ -9,10 +12,12 @@ export default function Routers() {
                     <Switch>
 
                         <Route path={'/registration'} render={()=><Registration/>}/>
-                        <Redirect to='/registration' />
+                        <Route path={'/login'} render={()=><LoginPage/>}/>
+                        <Route path={'/users'} render={()=><Users/>}/>
+                        <Route path={'/users:id'} component={User}/>
+                        {/*<Redirect to='/registration'/>*/}
+
                     </Switch>
-
-
                 </div>
             </Router>
         </div>
