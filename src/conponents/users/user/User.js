@@ -1,20 +1,39 @@
-import {useEffect, useState} from "react";
-import {useParams} from "react-router-dom"
-import {getUser} from "../../servises/API";
+import '../Users.css'
+import {Route, useHistory} from "react-router-dom";
+import Registration from "../../registration/Registration";
 
-export default function User() {
-    const {id} = useParams();
-    const [user, setUser] = useState({});
+export default function User({ user }) {
+    const history = useHistory();
 
-    useEffect(()=>{
-        getUser(id).then(value => setUser(value.data))
-    },[id])
+    const updateUser = () => {
+        try {
+            history.push(`/users/${user._id}`);
+        } catch (err) {
+            console.log(err);
+        }
+    }
 
-    return(
-        <div>
-            {user.first_name} - {user.last_name}
-            <br/>
-            {user.phone}
-        </div>
+    return (
+        <>
+            <div className="container" onClick={updateUser}>
+                <div className="user-container">
+                    {user.first_name}
+                </div>
+                <div className="user-container">
+                    {user.last_name}
+                </div>
+                <div className="user-container">
+                    {user.email}
+                </div>
+                <div className="user-container">
+                    {user.phone}
+                </div>
+            </div>
+
+
+
+
+        </>
+
     )
 }

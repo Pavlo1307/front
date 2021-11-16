@@ -1,9 +1,9 @@
 import {useReducer} from "react";
+import {useParams} from "react-router-dom"
 import {registrationUser} from "../servises/API";
-import './Registration.css'
-import {Link} from "react-router-dom";
-import {pushNewTodo} from "../../redux/actionsCreators";
-import {useDispatch} from "react-redux";
+import '../registration/Registration.css'
+import {useDispatch, useSelector} from "react-redux";
+import {todosReducer, } from "../../redux/reducers/todos";
 
 const reducer = (state, action) => {
     switch (action.type){
@@ -22,9 +22,14 @@ const reducer = (state, action) => {
     }
 }
 
-export default function Registration() {
+export default function UpdateUser() {
+    const {id} = useParams();
+    const { users } = useSelector(({ todosReducer }) => todosReducer)
 
     const dispatchRedux = useDispatch();
+
+    const userForUpdate = users.find(user => user._id === id)
+    console.log(userForUpdate.first_name, 'sssss');
 
     const [{ first_name, last_name, email, phone, password}, dispatch] = useReducer(reducer, {
         first_name: '',
@@ -35,12 +40,11 @@ export default function Registration() {
     })
 
 
+
     const handleSubmit = async (e) => {
         try {
             e.preventDefault();
             const resp = await registrationUser({first_name, last_name, email, phone, password});
-
-            dispatchRedux(pushNewTodo(resp.data));
 
         } catch (err) {
             console.log(err);
@@ -50,24 +54,24 @@ export default function Registration() {
     return (
         <div className='pageStyle'>
             <form className='formRegistration' onSubmit={handleSubmit}>
-                <h2>Register</h2>
+                <h2>{userForUpdate.first_name}</h2>
                 <input type="text"
-                       placeholder={'First name'}
+                       placeholder={userForUpdate.first_name}
                        value={first_name}
                        onChange={({ target: { value } }) => dispatch({ type: 'FIRST_NAME', payload: value })}
                 />
                 <input type="text"
-                       placeholder={'Last name'}
+                       placeholder={userForUpdate.last_name}
                        value={last_name}
                        onChange={({target: {value}}) => dispatch({ type:'LAST_NAME', payload: value })}
                 />
                 <input type="email"
-                       placeholder={'Email'}
+                       placeholder={userForUpdate.email}
                        value={email}
                        onChange={({target: {value}}) => dispatch({type:'EMAIL', payload: value})}
                 />
                 <input type="text"
-                       placeholder={'Phone'}
+                       placeholder={userForUpdate.phone}
                        value={phone}
                        onChange={({target: {value}}) => dispatch({type:'PHONE', payload: value})}
                 />
@@ -76,7 +80,7 @@ export default function Registration() {
                        value={password}
                        onChange={({target:{value}}) => dispatch({type:'PASSWORD', payload: value})}
                 />
-                <button className='down-button'>Registration</button>
+                <button className='down-button'>Update</button>
             </form>
         </div>
 

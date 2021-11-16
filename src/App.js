@@ -1,7 +1,5 @@
 import Routers from "./conponents/routers/Routers";
-
 function App() {
-
   return (
       <div>
           <Routers/>

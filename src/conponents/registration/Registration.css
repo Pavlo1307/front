@@ -1,23 +1,12 @@
-.pageStyle {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-image: url('https://images.pexels.com/photos/1363876/pexels-photo-1363876.jpeg?cs=srgb&dl=pexels-travis-blessing-1363876.jpg&fm=jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100%;
-}
+
 
 .formRegistration{
-    color: white;
     display: flex;
     flex-direction: column;
     border-radius: 20px;
     justify-content: center;
     align-items: center;
-    background-color: rgba(165, 165, 165, 0.2);
+    background-color: rgba(139,132,108,0.19);
     height: 450px;
     width: 250px;
     padding: 30px;
