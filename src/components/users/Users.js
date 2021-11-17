@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {getUsers} from "../servises/API";
+import {getUsers} from "../../servises/API";
 import User from "./user/User";
 import './Users.css'
 import {Route, useHistory, Switch} from "react-router-dom";
@@ -41,10 +41,10 @@ export default function Users() {
         <div>
             <div className="page">
                 <div className="container">
-                    <h3>First name</h3>
-                    <h3>Last name</h3>
+                    <h3>Username</h3>
                     <h3>Email</h3>
-                    <h3>Phone</h3>
+                    <h3>First name</h3>
+                    <h3>Last Name</h3>
                 </div>
 
                 <div className="second-container">

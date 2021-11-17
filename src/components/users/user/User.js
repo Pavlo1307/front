@@ -17,17 +17,18 @@ export default function User({ user }) {
         <>
             <div className="container" onClick={updateUser}>
                 <div className="user-container">
-                    {user.first_name}
-                </div>
-                <div className="user-container">
-                    {user.last_name}
+                    {user.username}
                 </div>
                 <div className="user-container">
                     {user.email}
                 </div>
                 <div className="user-container">
-                    {user.phone}
+                    {user.first_name}
                 </div>
+                <div className="user-container">
+                    {user.last_name}
+                </div>
+
             </div>
 
 
