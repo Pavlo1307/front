@@ -1,4 +1,4 @@
-import {useReducer, useState} from "react";
+import {useEffect, useReducer, useState} from "react";
 import {useParams, useHistory} from "react-router-dom"
 import {deleteUserById, updateUserById} from "../../servises/API";
 import '../registration/Registration.css'
@@ -9,7 +9,7 @@ import {delTodo, updateTodo} from "../../redux/actionsCreators";
 export default function UpdateUser() {
     const { id } = useParams();
     const history = useHistory();
-    const { users } = useSelector(({ todosReducer }) => todosReducer)
+    const { users, toggle } = useSelector(({ todosReducer }) => todosReducer)
 
     const dispatch = useDispatch();
 
@@ -19,13 +19,12 @@ export default function UpdateUser() {
     const [last_name, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [username, setUserName] = useState('')
-
+    const [error, setError] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-
-            if (first_name === '') setFirstName(userForUpdate.first_name)
+            if (first_name === '' ) setFirstName(userForUpdate.first_name)
             if (last_name === '') setLastName(userForUpdate.last_name)
             if (email === '') setEmail(userForUpdate.email)
             if (username === '') setUserName(userForUpdate.username)
@@ -36,7 +35,7 @@ export default function UpdateUser() {
             history.push('/users')
 
         } catch (err) {
-            console.log(err);
+            setError(err.response.data.message)
         }
     }
 
@@ -49,7 +48,7 @@ export default function UpdateUser() {
             dispatch(delTodo(userForUpdate._id))
 
         }catch (err) {
-            console.log(err);
+            setError(err.response.data.message)
         }
     }
 
@@ -57,6 +56,9 @@ export default function UpdateUser() {
         <div className='pageStyle'>
             <form className='formRegistration'>
                 <h2>{userForUpdate.first_name}</h2>
+                {
+                    error && <div className='div-error'> {error }</div>
+                }
                 <input type="text"
                        placeholder={userForUpdate.username}
                        value={username}

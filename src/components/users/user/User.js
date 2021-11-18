@@ -1,6 +1,6 @@
 import '../Users.css'
 import {Route, useHistory} from "react-router-dom";
-import Registration from "../../registration/Registration";
+
 
 export default function User({ user }) {
     const history = useHistory();
@@ -8,6 +8,7 @@ export default function User({ user }) {
     const updateUser = () => {
         try {
             history.push(`/users/${user._id}`);
+
         } catch (err) {
             console.log(err);
         }
@@ -30,6 +31,7 @@ export default function User({ user }) {
                 </div>
 
             </div>
+
 
 
 

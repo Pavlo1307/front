@@ -5,18 +5,17 @@ import './Users.css'
 import {Route, useHistory, Switch} from "react-router-dom";
 import Registration from "../registration/Registration";
 import {useDispatch, useSelector} from "react-redux";
-import {todosReducer} from "../../redux/reducers/todos";
 import {addTodo} from "../../redux/actionsCreators";
 import UpdateUser from "../updateUser/UpdateUser";
 
 export default function Users() {
     const history = useHistory();
-    const { users } = useSelector(({ todosReducer }) => todosReducer);
+    const { users, toggle } = useSelector(({ todosReducer }) => todosReducer);
     const dispatch = useDispatch();
 
     useEffect(() => {
         fetchTodos()
-    }, [])
+    }, [toggle])
 
     const fetchTodos = async () => {
         try {

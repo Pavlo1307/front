@@ -3,7 +3,6 @@ import {registrationUser} from "../../servises/API";
 import './Registration.css'
 import {pushNewTodo} from "../../redux/actionsCreators";
 import {useDispatch, useSelector} from "react-redux";
-import Error from "../errors/Error";
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -52,7 +51,9 @@ export default function Registration() {
 
             <form className='formRegistration' onSubmit={handleSubmit}>
                 <h2>Register</h2>
-
+                {
+                   error && <div className='div-error'> {error }</div>
+                }
                 <input type="text"
                        placeholder={'User name'}
                        value={username}
@@ -86,7 +87,6 @@ export default function Registration() {
 
                 <button className='down-button'>Registration</button>
             </form>
-            <Error error={error} setError={setError}/>
         </div>
 
     );

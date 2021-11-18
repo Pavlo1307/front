@@ -1,7 +1,7 @@
 import {ADD_TODOS, PUSH_NEW_TODO, DELETE_TODO, UPDATE_TODO} from "../actionTypes";
 
 const initialState = {
-    users: []
+    users: [],
 }
 
 export const todosReducer = (state = initialState,action)=> {
@@ -34,6 +34,7 @@ export const todosReducer = (state = initialState,action)=> {
 
             return {...state}
         }
+
         default:
             return state
     }

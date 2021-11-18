@@ -22,12 +22,11 @@ input{
 }
 
 .down-button{
-    color: white;
     border: none;
     font-size: medium;
     padding: 14px;
     border-radius: 20px;
-    background-color: rgb(140 46 123);
+    background-color: white;
 }
 
 .up-button{
@@ -54,5 +53,10 @@ input{
     display: flex;
     column-gap: 50px;
     padding: 20px 10px ;
+}
+
+.div-error{
+    color: red;
+    text-align: center;
 }
 
