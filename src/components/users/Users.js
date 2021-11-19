@@ -10,12 +10,12 @@ import UpdateUser from "../updateUser/UpdateUser";
 
 export default function Users() {
     const history = useHistory();
-    const { users, toggle } = useSelector(({ todosReducer }) => todosReducer);
+    const { users } = useSelector(({ todosReducer }) => todosReducer);
     const dispatch = useDispatch();
 
     useEffect(() => {
         fetchTodos()
-    }, [toggle])
+    }, [])
 
     const fetchTodos = async () => {
         try {

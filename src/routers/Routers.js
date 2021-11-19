@@ -1,5 +1,4 @@
 import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
-import Registration from "../components/registration/Registration";
 import Users from "../components/users/Users";
 import User from "../components/users/user/User";
 

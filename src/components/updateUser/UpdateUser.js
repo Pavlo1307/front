@@ -52,8 +52,22 @@ export default function UpdateUser() {
         }
     }
 
+    const checkUpdate = async (e) => {
+        try {
+            e.preventDefault();
+            if (first_name === '' ) setFirstName(userForUpdate.first_name)
+            if (last_name === '') setLastName(userForUpdate.last_name)
+            if (email === '') setEmail(userForUpdate.email)
+            if (username === '') setUserName(userForUpdate.username)
+
+        }catch (err) {
+            setError(err.response.data.message)
+        }
+    }
+
     return (
         <div className='pageStyle'>
+
             <form className='formRegistration'>
                 <h2>{userForUpdate.first_name}</h2>
                 {
@@ -82,6 +96,7 @@ export default function UpdateUser() {
                 <div className='div-for-delete'>
                     <button className='down-button' onClick={handleSubmit}>Update</button>
                     <button className='down-button' onClick={deleteUser}>Delete</button>
+
                 </div>
             </form>
         </div>
