@@ -55,7 +55,7 @@ export default function UpdateUser() {
     const checkUpdate = async (e) => {
         try {
             e.preventDefault();
-            if (first_name === '' ) setFirstName(userForUpdate.first_name)
+            if (first_name === '' && first_name !== userForUpdate.first_name) setFirstName(userForUpdate.first_name)
             if (last_name === '') setLastName(userForUpdate.last_name)
             if (email === '') setEmail(userForUpdate.email)
             if (username === '') setUserName(userForUpdate.username)
@@ -75,7 +75,7 @@ export default function UpdateUser() {
                 }
                 <input type="text"
                        placeholder={userForUpdate.username}
-                       value={username}
+                       defaultValue={userForUpdate.username}
                        onChange={({target: {value}}) => setUserName(value)}
                 />
                 <input type="text"
